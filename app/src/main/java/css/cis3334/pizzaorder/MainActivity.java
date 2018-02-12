@@ -58,11 +58,41 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     }
 
     public void onClickOrder(View view) {
-        // ****** Students need to add code here to get information from the UI widgets...
+        //Added variables for kind and size of pizza
+        String topping;
+        String size="";
+        Boolean isExtraCheese=false;
 
-        // ****** Students need to modify the call to OrderPizza to order the type of pizza the user selects using the UI widgets
-        String orderDescription = pizzaOrderSystem.OrderPizza("Peperoni", "large", false  );
+        //first determine if delivery is requested
+        if(chkbxDelivery.isChecked()){
+            pizzaOrderSystem.setDelivery(true);
+        }else{
+            pizzaOrderSystem.setDelivery(false);
+        }
 
+        //check the pizza size selected
+        if(rbSmall.isChecked()){
+            size="SMALL";
+        }
+        if(rbMedium.isChecked()){
+            size="MEDIUM";
+        }
+        if(rbLarge.isChecked()){
+            size="LARGE";
+        }
+
+        //Did customer check extra cheese
+        if(chkbxCheese.isChecked()){
+            isExtraCheese=true;
+        }else{
+            isExtraCheese=false;
+        }
+
+        //The spinner displays toppings
+        topping=spinnerToppings.getSelectedItem().toString();
+
+        //The ordering system orders the type of pizza
+        String orderDescription = pizzaOrderSystem.OrderPizza(topping,size,isExtraCheese);
 
         //display a pop up message for a long period of time
         Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();

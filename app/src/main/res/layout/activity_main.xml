@@ -45,11 +45,11 @@
         android:entries="@array/toppings" />
 
     <CheckBox
-        android:text="CheckBoxExtraCheese"
+        android:id="@+id/checkBoxCheese"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBoxCheese"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:text="Extra Cheese?" />
 
     <Button
         android:text="Order"
@@ -59,10 +59,10 @@
         android:onClick="onClickOrder" />
 
     <CheckBox
-        android:text="CheckBoxDelivery"
+        android:id="@+id/checkBoxDeluvery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBoxDeluvery" />
+        android:text="Want Delivery?" />
 
     <TextView
         android:text="Total Due:"
